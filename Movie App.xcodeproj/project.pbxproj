@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		B40542272C51B05300261C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542262C51B05300261C5A /* AppDelegate.swift */; };
 		B40542292C51B05300261C5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542282C51B05300261C5A /* SceneDelegate.swift */; };
-		B405422B2C51B05300261C5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405422A2C51B05300261C5A /* ViewController.swift */; };
-		B405422E2C51B05300261C5A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B405422D2C51B05300261C5A /* Base */; };
 		B40542302C51B05400261C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B405422F2C51B05400261C5A /* Assets.xcassets */; };
 		B40542332C51B05400261C5A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B40542322C51B05400261C5A /* Base */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		B40542232C51B05300261C5A /* Movie App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40542262C51B05300261C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B40542282C51B05300261C5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B405422A2C51B05300261C5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B405422D2C51B05300261C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B405422F2C51B05400261C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B40542322C51B05400261C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B40542342C51B05400261C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +52,21 @@
 		B40542252C51B05300261C5A /* Movie App */ = {
 			isa = PBXGroup;
 			children = (
+				B405423A2C51B4EF00261C5A /* SupportingFiles */,
+			);
+			path = "Movie App";
+			sourceTree = "<group>";
+		};
+		B405423A2C51B4EF00261C5A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				B40542262C51B05300261C5A /* AppDelegate.swift */,
 				B40542282C51B05300261C5A /* SceneDelegate.swift */,
-				B405422A2C51B05300261C5A /* ViewController.swift */,
-				B405422C2C51B05300261C5A /* Main.storyboard */,
 				B405422F2C51B05400261C5A /* Assets.xcassets */,
 				B40542312C51B05400261C5A /* LaunchScreen.storyboard */,
 				B40542342C51B05400261C5A /* Info.plist */,
 			);
-			path = "Movie App";
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +129,6 @@
 			files = (
 				B40542302C51B05400261C5A /* Assets.xcassets in Resources */,
 				B40542332C51B05400261C5A /* Base in Resources */,
-				B405422E2C51B05300261C5A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +139,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B405422B2C51B05300261C5A /* ViewController.swift in Sources */,
 				B40542272C51B05300261C5A /* AppDelegate.swift in Sources */,
 				B40542292C51B05300261C5A /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B405422C2C51B05300261C5A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B405422D2C51B05300261C5A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B40542312C51B05400261C5A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,14 +284,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U2G7XTC7MU;
+				DEVELOPMENT_TEAM = 37PRXS9M74;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Movie App/Info.plist";
+				INFOPLIST_FILE = "Movie App/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +299,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sajjad.Movie-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,14 +316,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U2G7XTC7MU;
+				DEVELOPMENT_TEAM = 37PRXS9M74;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Movie App/Info.plist";
+				INFOPLIST_FILE = "Movie App/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +331,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sajjad.Movie-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
