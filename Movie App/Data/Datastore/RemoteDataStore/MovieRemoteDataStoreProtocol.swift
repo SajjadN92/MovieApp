@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CityLocalDatastoreProtocol {
-    func search(_ keyword: String) async throws -> [Movie]
+    func search(_ keyword: String) async throws -> MovieSearch
 }

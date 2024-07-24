@@ -39,6 +39,7 @@
 		B405427E2C51C1DF00261C5A /* MoviewRemoteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405427D2C51C1DF00261C5A /* MoviewRemoteDataStore.swift */; };
 		B40542802C51C1FD00261C5A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405427F2C51C1FD00261C5A /* Movie.swift */; };
 		B40542822C51C41200261C5A /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542812C51C41200261C5A /* MovieRequest.swift */; };
+		B40542842C51C5A300261C5A /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542832C51C5A300261C5A /* MovieSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		B405427D2C51C1DF00261C5A /* MoviewRemoteDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewRemoteDataStore.swift; sourceTree = "<group>"; };
 		B405427F2C51C1FD00261C5A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		B40542812C51C41200261C5A /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
+		B40542832C51C5A300261C5A /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				B405427F2C51C1FD00261C5A /* Movie.swift */,
+				B40542832C51C5A300261C5A /* MovieSearch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				B40542432C51B5E700261C5A /* StoryboardedView.swift in Sources */,
 				B40542682C51BF4200261C5A /* RequestProtocol.swift in Sources */,
 				B40542292C51B05300261C5A /* SceneDelegate.swift in Sources */,
+				B40542842C51C5A300261C5A /* MovieSearch.swift in Sources */,
 				B405427C2C51C1D700261C5A /* MovieRemoteDataStoreProtocol.swift in Sources */,
 				B40542472C51B5E700261C5A /* BaseView.swift in Sources */,
 				B40542522C51B6CA00261C5A /* MovieSearchRouterProtocol.swift in Sources */,

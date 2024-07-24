@@ -22,8 +22,8 @@ final class MoviewRemoteDataStore: CityLocalDatastoreProtocol {
         self.jsonDecoder = jsonDecoder
     }
 
-    func search(_ keyword: String) async throws -> [Movie] {
+    func search(_ keyword: String) async throws -> MovieSearch {
         let (data, _) = try await apiRequest.request(api: MovieRequest.search(keyword: keyword))
-        return try jsonDecoder.decode([Movie].self, from: data)
+        return try jsonDecoder.decode(MovieSearch.self, from: data)
     }
 }
