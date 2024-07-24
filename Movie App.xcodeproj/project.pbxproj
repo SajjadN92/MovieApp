@@ -35,6 +35,10 @@
 		B40542732C51C09200261C5A /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542722C51C09200261C5A /* APIRequestProtocol.swift */; };
 		B40542752C51C0B200261C5A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542742C51C0B200261C5A /* APIRequest.swift */; };
 		B40542772C51C0D700261C5A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542762C51C0D700261C5A /* APIError.swift */; };
+		B405427C2C51C1D700261C5A /* MovieRemoteDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405427B2C51C1D700261C5A /* MovieRemoteDataStoreProtocol.swift */; };
+		B405427E2C51C1DF00261C5A /* MoviewRemoteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405427D2C51C1DF00261C5A /* MoviewRemoteDataStore.swift */; };
+		B40542802C51C1FD00261C5A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405427F2C51C1FD00261C5A /* Movie.swift */; };
+		B40542822C51C41200261C5A /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542812C51C41200261C5A /* MovieRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		B40542722C51C09200261C5A /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
 		B40542742C51C0B200261C5A /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		B40542762C51C0D700261C5A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		B405427B2C51C1D700261C5A /* MovieRemoteDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRemoteDataStoreProtocol.swift; sourceTree = "<group>"; };
+		B405427D2C51C1DF00261C5A /* MoviewRemoteDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewRemoteDataStore.swift; sourceTree = "<group>"; };
+		B405427F2C51C1FD00261C5A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		B40542812C51C41200261C5A /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +217,8 @@
 		B40542642C51BF1500261C5A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B405427A2C51C1AE00261C5A /* Model */,
+				B40542782C51C17400261C5A /* Datastore */,
 				B40542652C51BF1B00261C5A /* Network */,
 			);
 			path = Data;
@@ -217,9 +227,9 @@
 		B40542652C51BF1B00261C5A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B405426F2C51C04C00261C5A /* JSONDecoder+Default.swift */,
 				B40542712C51C07800261C5A /* APIRequest */,
 				B40542662C51BF2200261C5A /* Base */,
-				B405426F2C51C04C00261C5A /* JSONDecoder+Default.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -243,6 +253,32 @@
 				B40542762C51C0D700261C5A /* APIError.swift */,
 			);
 			path = APIRequest;
+			sourceTree = "<group>";
+		};
+		B40542782C51C17400261C5A /* Datastore */ = {
+			isa = PBXGroup;
+			children = (
+				B40542792C51C17D00261C5A /* RemoteDataStore */,
+			);
+			path = Datastore;
+			sourceTree = "<group>";
+		};
+		B40542792C51C17D00261C5A /* RemoteDataStore */ = {
+			isa = PBXGroup;
+			children = (
+				B405427B2C51C1D700261C5A /* MovieRemoteDataStoreProtocol.swift */,
+				B405427D2C51C1DF00261C5A /* MoviewRemoteDataStore.swift */,
+				B40542812C51C41200261C5A /* MovieRequest.swift */,
+			);
+			path = RemoteDataStore;
+			sourceTree = "<group>";
+		};
+		B405427A2C51C1AE00261C5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B405427F2C51C1FD00261C5A /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,17 +358,21 @@
 				B405426E2C51BF8500261C5A /* RequestType.swift in Sources */,
 				B405424E2C51B6AD00261C5A /* MovieSearchModule.swift in Sources */,
 				B40542582C51B70900261C5A /* MovieSearchView.swift in Sources */,
+				B40542802C51C1FD00261C5A /* Movie.swift in Sources */,
 				B40542562C51B6E300261C5A /* MovieSearchViewModelProtocol.swift in Sources */,
 				B40542632C51BC5800261C5A /* UIViewController+Extensions.swift in Sources */,
 				B40542272C51B05300261C5A /* AppDelegate.swift in Sources */,
 				B40542702C51C04C00261C5A /* JSONDecoder+Default.swift in Sources */,
 				B40542602C51B91000261C5A /* MainContext.swift in Sources */,
+				B405427E2C51C1DF00261C5A /* MoviewRemoteDataStore.swift in Sources */,
 				B40542432C51B5E700261C5A /* StoryboardedView.swift in Sources */,
 				B40542682C51BF4200261C5A /* RequestProtocol.swift in Sources */,
 				B40542292C51B05300261C5A /* SceneDelegate.swift in Sources */,
+				B405427C2C51C1D700261C5A /* MovieRemoteDataStoreProtocol.swift in Sources */,
 				B40542472C51B5E700261C5A /* BaseView.swift in Sources */,
 				B40542522C51B6CA00261C5A /* MovieSearchRouterProtocol.swift in Sources */,
 				B40542442C51B5E700261C5A /* BaseRouter.swift in Sources */,
+				B40542822C51C41200261C5A /* MovieRequest.swift in Sources */,
 				B405426C2C51BF7300261C5A /* ResponseType.swift in Sources */,
 				B405426A2C51BF5C00261C5A /* RequestMethod.swift in Sources */,
 				B40542462C51B5E700261C5A /* BaseViewModel.swift in Sources */,
