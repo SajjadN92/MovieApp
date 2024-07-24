@@ -9,4 +9,5 @@ import Foundation
 
 enum Localized {
     static var search: String { NSLocalizedString("search", comment: "") }
+    static var movieSearch: String { NSLocalizedString("movie search", comment: "") }
 }

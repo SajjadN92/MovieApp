@@ -18,6 +18,21 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
 
     private func configView() { 
         view.backgroundColor = .colorBackground
+        setupNavigation()
+    }
+
+    private func setupNavigation() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .colorSecondaryBackground
+        appearance.shadowColor = .clear
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.colorText,
+            .font: Fonts.Title1.bold
+        ]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationItem.title = Localized.movieSearch
     }
 
     private func setupBindings() { }
