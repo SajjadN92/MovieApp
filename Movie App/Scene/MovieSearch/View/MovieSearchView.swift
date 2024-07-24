@@ -16,7 +16,9 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
         setupBindings()
     }
 
-    private func configView() { }
+    private func configView() { 
+        view.backgroundColor = .colorBackground
+    }
 
     private func setupBindings() { }
 }
