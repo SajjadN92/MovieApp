@@ -35,13 +35,22 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSm-LQ-FkD">
+                                <rect key="frame" x="24" y="428" width="345" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9oC-pY-QSg" secondAttribute="trailing" id="1tJ-Wa-SZd"/>
                             <constraint firstItem="9oC-pY-QSg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ExK-U6-ykt"/>
+                            <constraint firstItem="YSm-LQ-FkD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="Fgd-SW-hf5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YSm-LQ-FkD" secondAttribute="trailing" constant="24" id="KQR-vR-v78"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dOA-B8-2WB" secondAttribute="trailing" id="LiB-TG-lKE"/>
+                            <constraint firstItem="YSm-LQ-FkD" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="RCO-g3-t5V"/>
                             <constraint firstAttribute="bottom" secondItem="9oC-pY-QSg" secondAttribute="bottom" id="ZKv-Hg-MhP"/>
                             <constraint firstItem="dOA-B8-2WB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="jYb-uJ-Yi8"/>
                             <constraint firstItem="9oC-pY-QSg" firstAttribute="top" secondItem="dOA-B8-2WB" secondAttribute="bottom" id="nZn-sN-xIZ"/>
@@ -50,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="9oC-pY-QSg" id="Suc-Mt-A5x"/>
+                        <outlet property="messageLabel" destination="YSm-LQ-FkD" id="fg1-Ga-Yip"/>
                         <outlet property="searchView" destination="dOA-B8-2WB" id="fNW-Wv-R7g"/>
                     </connections>
                 </viewController>

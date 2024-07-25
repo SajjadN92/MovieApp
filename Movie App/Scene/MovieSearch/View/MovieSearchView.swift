@@ -15,6 +15,7 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
         static let cellHeight = 90.0
     }
 
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var searchView: SearchView!
     @IBOutlet weak var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, MovieSearchCellViewModel>?
@@ -31,9 +32,18 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
         view.backgroundColor = .colorBackground
         setupNavigation()
         setupCollectionView()
+        setupMessageLabel()
         searchView.textPublisher.sink { [weak self] text in
             self?.viewModel.action(.search(text))
         }.store(in: &cancellables)
+    }
+
+    private func setupMessageLabel() {
+        messageLabel.isHidden = true
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.textColor = .colorText
+        messageLabel.font = Fonts.Body1.medium
     }
 
     private func setupNavigation() {
@@ -58,6 +68,12 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
         collectionView.delegate = self
     }
 
+    private func showMessage(_ message: String) {
+        collectionView.isHidden = true
+        messageLabel.text = message
+        messageLabel.isHidden = false
+    }
+
     private func setupBindings() {
         viewModel
             .state
@@ -67,11 +83,11 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
             .sink { [weak self] loadingState in
                 switch loadingState {
                 case .notRequested:
-                    break
+                    self?.showMessage(Localized.searchMovie)
                 case .isLoading:
                     break
                 case .failed:
-                    break
+                    self?.showMessage(Localized.errorHappened)
                 case let .success(items):
                     self?.update(with: items)
                 }
@@ -93,6 +109,11 @@ extension MovieSearchView {
     }
 
     func update(with items: [MovieSearchCellViewModel]) {
+        guard !items.isEmpty else {
+            return showMessage(Localized.noSearchResult)
+        }
+        messageLabel.isHidden = true
+        collectionView.isHidden = false
         var snapshot = NSDiffableDataSourceSnapshot<Section, MovieSearchCellViewModel>()
         snapshot.appendSections(Section.allCases)
         snapshot.appendItems(items, toSection: .main)
