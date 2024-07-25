@@ -1,0 +1,22 @@
+//
+//  config.release.xcconfig
+//  Movie App
+//
+//  Created by Sajjad on 7/25/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+URL_SCHEME = https:/
+API_BASE_URL = $(URL_SCHEME)/api.themoviedb.org/3
+API_KEY = 4db6f586c40d7de3a19422ad32cd87b2
+IMAGE_BASE_URL = $(URL_SCHEME)/image.tmdb.org/t/p
+
+FLAG = RELEASE
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(FLAG)
+
+CURRENT_PROJECT_VERSION = 1
+MARKETING_VERSION = 0.1.0
+
+INFOPLIST_FILE = $(SRCROOT)/Movie App/SupporingFiles/Info.plist

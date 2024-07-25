@@ -45,6 +45,8 @@
 		B405428E2C51C81400261C5A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B405428C2C51C81400261C5A /* Localizable.strings */; };
 		B40542922C51C88100261C5A /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542912C51C88100261C5A /* Localized.swift */; };
 		B40542942C51C91E00261C5A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542932C51C91E00261C5A /* UIView+Extensions.swift */; };
+		B40542992C51CD3E00261C5A /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40542982C51CD3E00261C5A /* BuildConfig.swift */; };
+		B405429B2C51CD8C00261C5A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405429A2C51CD8C00261C5A /* Bundle+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,10 @@
 		B405428F2C51C81700261C5A /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B40542912C51C88100261C5A /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		B40542932C51C91E00261C5A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		B40542962C51CAEB00261C5A /* config.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.debug.xcconfig; sourceTree = "<group>"; };
+		B40542972C51CAF700261C5A /* config.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.release.xcconfig; sourceTree = "<group>"; };
+		B40542982C51CD3E00261C5A /* BuildConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
+		B405429A2C51CD8C00261C5A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,8 @@
 				B405422F2C51B05400261C5A /* Assets.xcassets */,
 				B40542312C51B05400261C5A /* LaunchScreen.storyboard */,
 				B40542342C51B05400261C5A /* Info.plist */,
+				B40542962C51CAEB00261C5A /* config.debug.xcconfig */,
+				B40542972C51CAF700261C5A /* config.release.xcconfig */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -212,6 +220,7 @@
 				B405425C2C51B8F600261C5A /* Context */,
 				B40542882C51C73700261C5A /* Fonts.swift */,
 				B40542912C51C88100261C5A /* Localized.swift */,
+				B40542982C51CD3E00261C5A /* BuildConfig.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -230,6 +239,7 @@
 			children = (
 				B40542622C51BC5800261C5A /* UIViewController+Extensions.swift */,
 				B40542932C51C91E00261C5A /* UIView+Extensions.swift */,
+				B405429A2C51CD8C00261C5A /* Bundle+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,10 +396,12 @@
 				B40542482C51B5E700261C5A /* StoryboardedViewController.swift in Sources */,
 				B40542452C51B5E700261C5A /* BaseModule.swift in Sources */,
 				B40542732C51C09200261C5A /* APIRequestProtocol.swift in Sources */,
+				B405429B2C51CD8C00261C5A /* Bundle+Extensions.swift in Sources */,
 				B405426E2C51BF8500261C5A /* RequestType.swift in Sources */,
 				B40542922C51C88100261C5A /* Localized.swift in Sources */,
 				B405424E2C51B6AD00261C5A /* MovieSearchModule.swift in Sources */,
 				B40542942C51C91E00261C5A /* UIView+Extensions.swift in Sources */,
+				B40542992C51CD3E00261C5A /* BuildConfig.swift in Sources */,
 				B40542582C51B70900261C5A /* MovieSearchView.swift in Sources */,
 				B40542802C51C1FD00261C5A /* Movie.swift in Sources */,
 				B40542562C51B6E300261C5A /* MovieSearchViewModelProtocol.swift in Sources */,
@@ -568,6 +580,7 @@
 		};
 		B40542382C51B05400261C5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B40542962C51CAEB00261C5A /* config.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -600,6 +613,7 @@
 		};
 		B40542392C51B05400261C5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B40542972C51CAF700261C5A /* config.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

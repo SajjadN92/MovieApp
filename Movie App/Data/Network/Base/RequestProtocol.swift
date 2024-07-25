@@ -12,7 +12,8 @@ public typealias ReaquestHeaders = [String: String]
 public typealias RequestParameters = [String: Any]
 
 protocol RequestProtocol {
-    var baseURL: String? { get }
+    var baseURL: String { get }
+    var apiKey: String { get }
     var path: String { get }
     var method: RequestMethod { get }
     var headers: ReaquestHeaders? { get }
@@ -30,8 +31,12 @@ protocol RequestProtocol {
 
 extension RequestProtocol {
 
-    var baseURL: String? {
-        return nil
+    var baseURL: String {
+        return BuildConfig.apiBaseURL
+    }
+
+    var apiKey: String {
+        return BuildConfig.apiKey
     }
 
     var headers: ReaquestHeaders? {

@@ -12,7 +12,7 @@ enum MovieRequest: RequestProtocol {
     case search(keyword: String)
 
     var path: String {
-        return ""
+        return "search/movie"
     }
 
     var method: RequestMethod {
@@ -30,7 +30,8 @@ enum MovieRequest: RequestProtocol {
         switch self {
         case let .search(keyword):
             return [
-                "query": keyword
+                "query": keyword,
+                "api_key": apiKey
             ]
         }
     }
