@@ -13,7 +13,7 @@ protocol MovieSearchViewModelProtocol: BaseViewModel {
     func action(_ handler: MovieSearchViewModelAction)
 }
 
-enum LocationListTheme {
+enum MovieSearchTheme {
     case light
     case dark
 
@@ -44,12 +44,12 @@ enum MovieSearchRoute {
 struct MovieSearchViewModelState {
     let route: MovieSearchRoute?
     let loadingState: LoadingState<[MovieSearchCellViewModel]>?
-    let theme: LocationListTheme?
+    let theme: MovieSearchTheme?
 
     init(
         route: MovieSearchRoute? = nil,
         loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil,
-        theme: LocationListTheme? = nil
+        theme: MovieSearchTheme? = nil
     ) {
         self.route = route
         self.loadingState = loadingState
@@ -59,7 +59,7 @@ struct MovieSearchViewModelState {
     func update(
         route: MovieSearchRoute? = nil,
         loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil,
-        theme: LocationListTheme? = nil
+        theme: MovieSearchTheme? = nil
     ) -> MovieSearchViewModelState {
         MovieSearchViewModelState(
             route: route,

@@ -37,6 +37,9 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
         case let .search(keyword):
             search(keyword: keyword)
         case let .itemTapped(index):
+            guard index < movies.count else {
+                return
+            }
             _state.value = _state.value.update(route: .movieDetail(movies[index]))
         case .themeButtonTapped:
             themeButtonTapped()
