@@ -92,6 +92,17 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
                     self?.update(with: items)
                 }
             }.store(in: &cancellables)
+
+        viewModel
+            .state
+            .compactMap(\.route)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] route in
+                switch route {
+                case let .movieDetail(movie):
+                    self?.router.navigateToDetail(with: movie)
+                }
+            }.store(in: &cancellables)
     }
 }
 

@@ -16,6 +16,7 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
 
     private var movieRepository: MovieRepositoryProtocol
     private var searchTask: Task<Void, Never>?
+    private var movies = [Movie]()
     private var _state: CurrentValueSubject<MovieSearchViewModelState, Never>
     var state: AnyPublisher<MovieSearchViewModelState, Never> {
         _state.eraseToAnyPublisher()
@@ -35,7 +36,7 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
         case let .search(keyword):
             search(keyword: keyword)
         case let .itemTapped(index):
-            break
+            _state.value = _state.value.update(route: .movieDetail(movies[index]))
         }
     }
 
@@ -50,7 +51,7 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
             do {
                 try await Task.sleep(for: .seconds(Constants.searchDebounce))
                 try Task.checkCancellation()
-                let movies = try await movieRepository.search(keyword)
+                movies = try await movieRepository.search(keyword)
                 _state.value = _state.value.update(loadingState: .success(movies.compactMap { movie in
                     var url: URL? {
                         if let imageName = movie.backdropPath {
@@ -73,5 +74,4 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
         }
     }
 
-    
 }

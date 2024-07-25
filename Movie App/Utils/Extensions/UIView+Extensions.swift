@@ -18,4 +18,11 @@ extension UIView {
             addSubview($0)
         }
     }
+
+    func rotateIfNeeded() {
+        guard Locale.current.language.characterDirection == .rightToLeft else {
+            return
+        }
+        transform = CGAffineTransform(scaleX: -1, y: 1)
+    }
 }

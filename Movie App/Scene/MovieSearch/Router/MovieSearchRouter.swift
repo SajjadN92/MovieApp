@@ -16,4 +16,8 @@ final class MovieSearchRouter: MovieSearchRouterProtocol {
         self.config = config
     }
 
+    func navigateToDetail(with movie: Movie) {
+        let vc = MovieDetailModule.build(with: MovieDetailModule.Configuration(context: config.context, movie: movie))
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

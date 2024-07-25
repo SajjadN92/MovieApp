@@ -27,11 +27,20 @@ final class MovieSearchCell: UICollectionViewCell {
     private func setupView() {
         layer.cornerRadius = Constants.cornerRadius
         layer.masksToBounds = true
-        backgroundColor = .colorSecondaryBackground
+        setupContainerView()
         setupTitleLabel()
         setupDateLabel()
+        setupMovieImageView()
+    }
+
+    private func setupMovieImageView() {
         movieImageView.contentMode = .scaleAspectFill
         movieImageView.kf.indicatorType = .activity
+    }
+
+    private func setupContainerView() {
+        containerView.backgroundColor = .colorSecondaryBackground
+        containerView.rotateIfNeeded()
     }
 
     private func setupTitleLabel() {

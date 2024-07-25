@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol MovieSearchRouterProtocol: BaseRouter { }
+protocol MovieSearchRouterProtocol: BaseRouter {
+    func navigateToDetail(with movie: Movie)
+}

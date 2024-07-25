@@ -13,7 +13,9 @@ protocol MovieSearchViewModelProtocol: BaseViewModel {
     func action(_ handler: MovieSearchViewModelAction)
 }
 
-enum MovieSearchRoute { }
+enum MovieSearchRoute {
+    case movieDetail(Movie)
+}
 
 struct MovieSearchViewModelState {
     let route: MovieSearchRoute?
