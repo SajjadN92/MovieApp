@@ -9,4 +9,5 @@ import Foundation
 
 protocol MovieSearchRouterProtocol: BaseRouter {
     func navigateToDetail(with movie: Movie)
+    func navigateToAppSettings()
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MovieRepositoryProtocol {
-    func search(_ keyword: String) async throws -> [Movie]
+    func search(_ keyword: String, language: String) async throws -> [Movie]
 }

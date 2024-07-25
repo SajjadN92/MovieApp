@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MovieRemoteDataStoreProtocol {
-    func search(_ keyword: String) async throws -> MovieSearch
+    func search(_ keyword: String, language: String) async throws -> MovieSearch
 }

@@ -12,6 +12,7 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
 
     private enum Constants {
         static let searchDebounce = 0.4
+        static let defaultLanguage = "en"
     }
 
     private var movieRepository: MovieRepositoryProtocol
@@ -39,6 +40,8 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
             _state.value = _state.value.update(route: .movieDetail(movies[index]))
         case .themeButtonTapped:
             themeButtonTapped()
+        case .languageButtonTapped:
+            _state.value = _state.value.update(route: .appSettings)
         }
     }
 
@@ -63,7 +66,7 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
             do {
                 try await Task.sleep(for: .seconds(Constants.searchDebounce))
                 try Task.checkCancellation()
-                movies = try await movieRepository.search(keyword)
+                movies = try await movieRepository.search(keyword, language: Locale.current.language.languageCode?.identifier ?? Constants.defaultLanguage)
                 _state.value = _state.value.update(loadingState: .success(movies.compactMap { movie in
                     var url: URL? {
                         if let imageName = movie.backdropPath {

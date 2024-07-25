@@ -9,7 +9,7 @@ import Foundation
 
 enum MovieRequest: RequestProtocol {
 
-    case search(keyword: String)
+    case search(keyword: String, language: String)
 
     var path: String {
         return "search/movie"
@@ -28,8 +28,9 @@ enum MovieRequest: RequestProtocol {
 
     var parameters: RequestParameters? {
         switch self {
-        case let .search(keyword):
+        case let .search(keyword, language):
             return [
+                "language": language,
                 "query": keyword,
                 "api_key": apiKey
             ]

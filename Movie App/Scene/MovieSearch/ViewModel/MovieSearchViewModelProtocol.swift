@@ -38,6 +38,7 @@ enum LocationListTheme {
 
 enum MovieSearchRoute {
     case movieDetail(Movie)
+    case appSettings
 }
 
 struct MovieSearchViewModelState {
@@ -73,4 +74,5 @@ enum MovieSearchViewModelAction {
     case search(String)
     case itemTapped(Int)
     case themeButtonTapped
+    case languageButtonTapped
 }

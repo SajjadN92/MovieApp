@@ -20,4 +20,11 @@ final class MovieSearchRouter: MovieSearchRouterProtocol {
         let vc = MovieDetailModule.build(with: MovieDetailModule.Configuration(context: config.context, movie: movie))
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
+
+    func navigateToAppSettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        UIApplication.shared.open(url)
+    }
 }

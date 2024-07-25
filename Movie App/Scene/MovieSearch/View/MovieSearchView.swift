@@ -13,6 +13,7 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
         static let margin = 24.0
         static let itemMargin = 10.0
         static let cellHeight = 90.0
+        static let languageIcon = "abc"
     }
 
     @IBOutlet weak var messageLabel: UILabel!
@@ -66,6 +67,14 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
             }
         )
         navigationItem.rightBarButtonItem?.tintColor = .colorText
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: Constants.languageIcon),
+            primaryAction: UIAction { [weak self] _ in
+                self?.viewModel.action(.languageButtonTapped)
+            }
+        )
+        navigationItem.leftBarButtonItem?.tintColor = .colorText
     }
 
     private func setupCollectionView() {
@@ -109,6 +118,8 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
                 switch route {
                 case let .movieDetail(movie):
                     self?.router.navigateToDetail(with: movie)
+                case .appSettings:
+                    self?.router.navigateToAppSettings()
                 }
             }.store(in: &cancellables)
 
