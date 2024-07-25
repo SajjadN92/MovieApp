@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct MovieSearchCellViewModel: Equatable {
+struct MovieSearchCellViewModel: Hashable {
+    let id: Int64
     let movieTitle: String
     let movieDate: String
     let imageURL: URL?

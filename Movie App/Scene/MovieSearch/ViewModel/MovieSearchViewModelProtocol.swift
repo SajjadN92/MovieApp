@@ -41,4 +41,5 @@ struct MovieSearchViewModelState {
 enum MovieSearchViewModelAction {
     case viewDidLoad
     case search(String)
+    case itemTapped(Int)
 }

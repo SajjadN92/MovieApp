@@ -9,18 +9,28 @@ import UIKit
 
 final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, MovieSearchRouter> {
 
+    private enum Constants {
+        static let margin = 24.0
+        static let itemMargin = 10.0
+        static let cellHeight = 90.0
+    }
+
     @IBOutlet weak var searchView: SearchView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, MovieSearchCellViewModel>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configView()
         setupBindings()
+        viewModel.action(.viewDidLoad)
     }
 
     private func configView() { 
         view.backgroundColor = .colorBackground
         setupNavigation()
+        setupCollectionView()
         searchView.textPublisher.sink { [weak self] text in
             self?.viewModel.action(.search(text))
         }.store(in: &cancellables)
@@ -40,5 +50,119 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
         navigationItem.title = Localized.movieSearch
     }
 
-    private func setupBindings() { }
+    private func setupCollectionView() {
+        collectionView.backgroundColor = .colorBackground
+        collectionView.collectionViewLayout = generateLayout()
+        dataSource = makeDataSource()
+        collectionView.dataSource = dataSource
+        collectionView.delegate = self
+    }
+
+    private func setupBindings() {
+        viewModel
+            .state
+            .compactMap(\.loadingState)
+            .removeDuplicates()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] loadingState in
+                switch loadingState {
+                case .notRequested:
+                    break
+                case .isLoading:
+                    break
+                case .failed:
+                    break
+                case let .success(items):
+                    self?.update(with: items)
+                }
+            }.store(in: &cancellables)
+    }
+}
+
+extension MovieSearchView: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.action(.itemTapped(indexPath.row))
+    }
+}
+
+extension MovieSearchView {
+
+    private func makeCellRegistration() {
+        collectionView.registerCellTypeForNib(MovieSearchCell.self)
+    }
+
+    func update(with items: [MovieSearchCellViewModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MovieSearchCellViewModel>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(items, toSection: .main)
+        dataSource?.apply(snapshot)
+    }
+
+    func generateLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex: Int, env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            switch sectionIndex {
+            case Section.main.rawValue:
+                return self?.generateLayout(env: env)
+            default:
+                return nil
+            }
+        }
+        return layout
+    }
+
+    private func generateLayout(env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let itemLayout = NSCollectionLayoutItem(layoutSize: itemSize)
+        itemLayout.contentInsets = NSDirectionalEdgeInsets(
+            top: Constants.itemMargin,
+            leading: Constants.margin,
+            bottom: 0,
+            trailing: Constants.margin
+        )
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(Constants.cellHeight)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [itemLayout])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        return section
+    }
+
+    func makeDataSource() -> UICollectionViewDiffableDataSource<Section, MovieSearchCellViewModel> {
+        makeCellRegistration()
+
+        let dataSource: UICollectionViewDiffableDataSource<Section, MovieSearchCellViewModel> = UICollectionViewDiffableDataSource(
+            collectionView: collectionView,
+            cellProvider: { [weak self] collectionView, indexPath, item in
+                guard let self else {
+                    return UICollectionViewCell()
+                }
+
+                return self.makeCell(on: collectionView, for: indexPath, with: item)
+            }
+        )
+
+        return dataSource
+    }
+
+    private func makeCell(
+        on collection: UICollectionView,
+        for indexPath: IndexPath,
+        with model: MovieSearchCellViewModel
+    ) -> UICollectionViewCell {
+        let cell: MovieSearchCell = collectionView.dequeueReusableCellType(indexPath)
+        cell.config(with: model)
+        return cell
+    }
+
+    enum Section: Int, Hashable, CaseIterable {
+        case main
+    }
 }

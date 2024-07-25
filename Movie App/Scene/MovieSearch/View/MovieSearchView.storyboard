@@ -24,22 +24,38 @@
                                     <constraint firstAttribute="height" constant="45" id="ScC-6f-aBS"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9oC-pY-QSg">
+                                <rect key="frame" x="0.0" y="104" width="393" height="748"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gid-Ov-FWA">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9oC-pY-QSg" secondAttribute="trailing" id="1tJ-Wa-SZd"/>
+                            <constraint firstItem="9oC-pY-QSg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ExK-U6-ykt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dOA-B8-2WB" secondAttribute="trailing" id="LiB-TG-lKE"/>
+                            <constraint firstAttribute="bottom" secondItem="9oC-pY-QSg" secondAttribute="bottom" id="ZKv-Hg-MhP"/>
                             <constraint firstItem="dOA-B8-2WB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="jYb-uJ-Yi8"/>
+                            <constraint firstItem="9oC-pY-QSg" firstAttribute="top" secondItem="dOA-B8-2WB" secondAttribute="bottom" id="nZn-sN-xIZ"/>
                             <constraint firstItem="dOA-B8-2WB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="teI-OE-udu"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="9oC-pY-QSg" id="Suc-Mt-A5x"/>
                         <outlet property="searchView" destination="dOA-B8-2WB" id="fNW-Wv-R7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="-2"/>
+            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

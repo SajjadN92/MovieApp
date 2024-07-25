@@ -8,7 +8,8 @@
 import Foundation
 
 struct Movie: Decodable {
+    let id: Int64
     let title: String
     let releaseDate: String
-    let backdrop_path: String
+    let backdropPath: String?
 }

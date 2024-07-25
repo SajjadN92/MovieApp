@@ -34,6 +34,8 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
             _state.value = _state.value.update(loadingState: .notRequested)
         case let .search(keyword):
             search(keyword: keyword)
+        case let .itemTapped(index):
+            break
         }
     }
 
@@ -49,14 +51,27 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
                 try await Task.sleep(for: .seconds(Constants.searchDebounce))
                 try Task.checkCancellation()
                 let movies = try await movieRepository.search(keyword)
-                _state.value = _state.value.update(loadingState: .success(movies.compactMap {
-                    MovieSearchCellViewModel(movieTitle: $0.title, movieDate: $0.releaseDate, imageURL: URL(string: ""))
+                _state.value = _state.value.update(loadingState: .success(movies.compactMap { movie in
+                    var url: URL? {
+                        if let imageName = movie.backdropPath {
+                            return ImageURLGenerator.generateURL(for: imageName, with: .small)
+                        } else {
+                            return nil
+                        }
+                    }
+                    return MovieSearchCellViewModel(
+                        id: movie.id,
+                        movieTitle: movie.title,
+                        movieDate: movie.releaseDate,
+                        imageURL: url
+                    )
                 }))
             } catch let error as CancellationError {
-                print(error)
             } catch {
                 _state.value = _state.value.update(loadingState: .failed)
             }
         }
     }
+
+    
 }
