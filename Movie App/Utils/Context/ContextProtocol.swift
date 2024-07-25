@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol ContextProtocol { }
+protocol ContextProtocol {
+    var movieRepository: MovieRepositoryProtocol { get }
+}

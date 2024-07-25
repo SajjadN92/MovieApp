@@ -1,5 +1,5 @@
 //
-//  MoviewRemoteDataStore.swift
+//  MovieRemoteDataStore.swift
 //  Movie App
 //
 //  Created by Sajjad on 7/25/24.
@@ -7,9 +7,7 @@
 
 import Foundation
 
-import Foundation
-
-final class MoviewRemoteDataStore: CityLocalDatastoreProtocol {
+final class MovieRemoteDataStore: MovieRemoteDataStoreProtocol {
 
     private let apiRequest: APIRequestProtocol
     private let jsonDecoder: JSONDecoder

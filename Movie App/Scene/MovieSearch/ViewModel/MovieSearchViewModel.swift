@@ -9,12 +9,14 @@ import Combine
 
 final class MovieSearchViewModel: MovieSearchViewModelProtocol {
 
+    private var movieRepository: MovieRepositoryProtocol
     private var _state: CurrentValueSubject<MovieSearchViewModelState, Never>
     var state: AnyPublisher<MovieSearchViewModelState, Never> {
         _state.eraseToAnyPublisher()
     }
 
-    init() {
+    init(movieRepository: MovieRepositoryProtocol) {
+        self.movieRepository = movieRepository
         self._state = CurrentValueSubject<MovieSearchViewModelState, Never>(
             MovieSearchViewModelState()
         )
