@@ -21,6 +21,9 @@ Currently, the app supports Farsi and English languages and the language can cha
 ## Theme
 The app supports light and dark themes with the initial value of dark theme at the start of the app.
 
+## External Libraries
+The only used external dependency is `KingFisher` for loading remote images.
+
 ## Enhancement List
 the following list isn't implemented in the app, but we can make this project better by implementing it:
 - [ ] Impelenting UseCases
