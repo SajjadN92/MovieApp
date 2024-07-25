@@ -15,7 +15,7 @@ final class MovieRepository: MovieRepositoryProtocol {
         self.remoteDataStore = remoteDataStore
     }
 
-    func search(_ keyword: String) async throws -> MovieSearch {
-        try await remoteDataStore.search(keyword)
+    func search(_ keyword: String) async throws -> [Movie] {
+        try await remoteDataStore.search(keyword).results
     }
 }

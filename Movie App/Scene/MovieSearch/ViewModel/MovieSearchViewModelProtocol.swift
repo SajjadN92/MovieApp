@@ -17,20 +17,28 @@ enum MovieSearchRoute { }
 
 struct MovieSearchViewModelState {
     let route: MovieSearchRoute?
+    let loadingState: LoadingState<[MovieSearchCellViewModel]>?
 
     init(
-        route: MovieSearchRoute? = nil
+        route: MovieSearchRoute? = nil,
+        loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil
     ) {
         self.route = route
+        self.loadingState = loadingState
     }
 
     func update(
-        route: MovieSearchRoute? = nil
+        route: MovieSearchRoute? = nil,
+        loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil
     ) -> MovieSearchViewModelState {
         MovieSearchViewModelState(
-            route: route
+            route: route,
+            loadingState: loadingState
         )
     }
 }
 
-enum MovieSearchViewModelAction { }
+enum MovieSearchViewModelAction {
+    case viewDidLoad
+    case search(String)
+}

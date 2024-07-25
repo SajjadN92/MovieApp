@@ -9,6 +9,8 @@ import UIKit
 
 final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, MovieSearchRouter> {
 
+    @IBOutlet weak var searchView: SearchView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,9 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
     private func configView() { 
         view.backgroundColor = .colorBackground
         setupNavigation()
+        searchView.textPublisher.sink { [weak self] text in
+            self?.viewModel.action(.search(text))
+        }.store(in: &cancellables)
     }
 
     private func setupNavigation() {

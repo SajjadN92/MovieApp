@@ -14,7 +14,7 @@ enum MovieSearchModule: BaseModule {
     }
 
     static func build(with configuration: Configuration) -> MovieSearchView {
-        let viewModel = MovieSearchViewModel()
+        let viewModel = MovieSearchViewModel(movieRepository: configuration.context.movieRepository)
         let router = MovieSearchRouter(with: configuration)
         let viewController = MovieSearchView.instantiateViewController { coder in
             return MovieSearchView(coder: coder, viewModel: viewModel, router: router)

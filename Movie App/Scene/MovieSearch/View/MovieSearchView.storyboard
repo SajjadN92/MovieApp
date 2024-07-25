@@ -33,6 +33,9 @@
                             <constraint firstItem="dOA-B8-2WB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="teI-OE-udu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchView" destination="dOA-B8-2WB" id="fNW-Wv-R7g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
