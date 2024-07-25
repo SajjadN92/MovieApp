@@ -58,6 +58,14 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.title = Localized.movieSearch
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: ""),
+            primaryAction: UIAction { [weak self] _ in
+                self?.viewModel.action(.themeButtonTapped)
+            }
+        )
+        navigationItem.rightBarButtonItem?.tintColor = .colorText
     }
 
     private func setupCollectionView() {
@@ -102,6 +110,15 @@ final class MovieSearchView: StoryboardedViewController<MovieSearchViewModel, Mo
                 case let .movieDetail(movie):
                     self?.router.navigateToDetail(with: movie)
                 }
+            }.store(in: &cancellables)
+
+        viewModel
+            .state
+            .compactMap(\.theme)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] theme in
+                self?.navigationController?.overrideUserInterfaceStyle = theme.style
+                self?.navigationItem.rightBarButtonItem?.image = UIImage(systemName: theme.icon)
             }.store(in: &cancellables)
     }
 }

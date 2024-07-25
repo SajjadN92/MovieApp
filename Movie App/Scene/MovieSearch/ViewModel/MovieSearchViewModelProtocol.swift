@@ -13,6 +13,29 @@ protocol MovieSearchViewModelProtocol: BaseViewModel {
     func action(_ handler: MovieSearchViewModelAction)
 }
 
+enum LocationListTheme {
+    case light
+    case dark
+
+    var icon: String {
+        switch self {
+        case .light:
+            return "moon.fill"
+        case .dark:
+            return "sun.max"
+        }
+    }
+
+    var style: UIUserInterfaceStyle {
+        switch self {
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        }
+    }
+}
+
 enum MovieSearchRoute {
     case movieDetail(Movie)
 }
@@ -20,22 +43,27 @@ enum MovieSearchRoute {
 struct MovieSearchViewModelState {
     let route: MovieSearchRoute?
     let loadingState: LoadingState<[MovieSearchCellViewModel]>?
+    let theme: LocationListTheme?
 
     init(
         route: MovieSearchRoute? = nil,
-        loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil
+        loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil,
+        theme: LocationListTheme? = nil
     ) {
         self.route = route
         self.loadingState = loadingState
+        self.theme = theme
     }
 
     func update(
         route: MovieSearchRoute? = nil,
-        loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil
+        loadingState: LoadingState<[MovieSearchCellViewModel]>? = nil,
+        theme: LocationListTheme? = nil
     ) -> MovieSearchViewModelState {
         MovieSearchViewModelState(
             route: route,
-            loadingState: loadingState
+            loadingState: loadingState,
+            theme: theme ?? self.theme
         )
     }
 }
@@ -44,4 +72,5 @@ enum MovieSearchViewModelAction {
     case viewDidLoad
     case search(String)
     case itemTapped(Int)
+    case themeButtonTapped
 }

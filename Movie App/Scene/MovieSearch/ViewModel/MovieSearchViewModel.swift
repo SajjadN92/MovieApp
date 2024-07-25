@@ -32,11 +32,23 @@ final class MovieSearchViewModel: MovieSearchViewModelProtocol {
     func action(_ handler: MovieSearchViewModelAction) {
         switch handler {
         case .viewDidLoad:
-            _state.value = _state.value.update(loadingState: .notRequested)
+            _state.value = _state.value.update(loadingState: .notRequested, theme: .dark)
         case let .search(keyword):
             search(keyword: keyword)
         case let .itemTapped(index):
             _state.value = _state.value.update(route: .movieDetail(movies[index]))
+        case .themeButtonTapped:
+            themeButtonTapped()
+        }
+    }
+
+    private func themeButtonTapped() {
+        guard let currentTheme = _state.value.theme else { return }
+        switch currentTheme {
+        case .light:
+            _state.value = _state.value.update(theme: .dark)
+        case .dark:
+            _state.value = _state.value.update(theme: .light)
         }
     }
 
