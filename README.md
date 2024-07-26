@@ -13,6 +13,9 @@ Note that no other tools are needed to run the app.
 The main used architecture is `MVVMR`
 The view sends actions to viewModel and ViewModel state changes based on actions and available data, as the view observes the viewModel state, the view will change based on state changes.
 
+## Unit Tests
+Most of the app's logic is in ViewModels, and both ViewModels have tests.
+
 ### DI
 The app is using Context for DI, a context injected to the first module, and this module's router injects the context to other modules on initialization
 
