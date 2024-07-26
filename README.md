@@ -5,7 +5,8 @@ This project uses `https://developer.themoviedb.org/` to achieve a simple movie 
 
 ## How to run
 1. Clone the project
-2. Open it using Xcode
+2. Open it using Xcode (The project built with Xcode 15.4 with minimum target of iOS 16.0)
+
 Note that no other tools are needed to run the app.
 
 ## Architecture
@@ -23,6 +24,7 @@ The app supports light and dark themes with the initial value of dark theme at t
 
 ## External Libraries
 The only used external dependency is `KingFisher` for loading remote images.
+This helped me from developing the whole image loading logic.
 
 ## Enhancement List
 the following list isn't implemented in the app, but we can make this project better by implementing it:
